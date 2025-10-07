@@ -2,7 +2,7 @@
 
 # source 'https://rubygems.org'
 
-# Windows ENV.
+# Multi ENV.
 if Gem.win_platform?
     gem 'sheltered-girl', '4.0.4.5'
 else
