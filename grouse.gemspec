@@ -25,8 +25,8 @@ Gem::Specification.new do |s|
   s.description = "nyasocom_sun packages in ROR."
   s.metadata["github_repo"] = "https://github.com/takkii/grouse"
 
-  # If build error case, unless Gem.win_platform?
-  s.add_runtime_dependency('sheltered-girl', '~> 4.0') if Gem.win_platform?
+  # Use Windows ENV, speak function v4.0.4.5. exec 'bundle install'.
+  s.add_runtime_dependency('sheltered-girl', '~> 4.0')
 
   if s.respond_to? :specification_version
     s.specification_version = 4
