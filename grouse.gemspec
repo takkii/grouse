@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
     "LICENSE.txt",
   ]
   # Ignore files in mini_test and mini_unit folder.
-  s.files = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(mini_test|mini_unit)/}) }
+  s.files = `git ls-files -z`.split("\x0")
   s.homepage = "https://github.com/takkii/grouse"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
