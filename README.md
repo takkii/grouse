@@ -2,8 +2,13 @@
 
 <br />
 
+<div align="center"><img src="https://github.com/takkii/grouse/blob/main/images/grouse.gif" alt="grouse image" title="logo"></div>
+
+<br />
+
 <div align="center">
-  <p> This project name is grouse, Use nyasocom_sun_pg_win. </p>
+  <p> This project name is grouse.</p>
+   <p>Use nyasocom_sun_pg_win. </p>
   <b> Copyright &copy 2025 Takayuki Kamiyama </b>
   <p> Please readme, See the <a href="https://github.com/takkii/grouse/wiki/manual">wiki</a> for how to use. </p>
 </div>
