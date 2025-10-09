@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'open3'
+
 # CoreNYM version in .env
 class CoreNYM
     # current date.
@@ -21,6 +23,18 @@ class CoreNYM
     # version number x.x
     def self.version
         @version = ENV['NYASOCOMSUN_VERSION']
+    end
+
+    # rubygems version
+    def self.gem_version
+        gem_version = 'gem -v'
+        stdout_rb, stderr_rb, status_rb = Open3.capture3(gem_version)
+        VERSION = stdout_rb.to_s
+    end
+
+    # nyasocom tools core version
+    def self.core_version
+        '1.0.2'.to_s
     end
 end
 
