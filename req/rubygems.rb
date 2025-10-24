@@ -2,6 +2,7 @@
 
 # dependent file or library.
 # --------------------------------------
+require 'grouse'
 require 'version'
 require 'bmi'
 # --------------------------------------

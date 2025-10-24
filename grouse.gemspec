@@ -4,11 +4,10 @@ lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 require "#{File.dirname(__FILE__)}/req/rubygems"
-require 'nym'
 
 Gem::Specification.new do |s|
   s.name = "grouse"
-  s.version = CoreNYM.core_version
+  s.version = core_version
   s.authors = ["Takayuki Kamiyama"]
   s.email = "karuma.reason@gmail.com"
   s.extra_rdoc_files = [
@@ -20,7 +19,7 @@ Gem::Specification.new do |s|
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
   s.required_ruby_version = ['>= 3.0']
-  s.required_rubygems_version = '~> 3.6.9' if s.respond_to? CoreNYM.gem_version
+  s.required_rubygems_version = '~> 3.6.9' if s.respond_to? gem_version
   s.summary = "This project is minimum packages"
   s.description = "nyasocom_sun packages in ROR."
   s.metadata["github_repo"] = "https://github.com/takkii/grouse"
