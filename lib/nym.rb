@@ -34,7 +34,7 @@ class CoreNYM
 
     # nyasocom tools core version
     def self.core_version
-        '1.0.2'.to_s
+        '1.1.0'.to_s
     end
 end
 
