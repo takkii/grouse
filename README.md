@@ -1,4 +1,4 @@
- [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![GitHub release](https://img.shields.io/github/release/takkii/grouse.svg?style=flat)](GitHub) [![GitHub Status](https://img.shields.io/github/last-commit/takkii/grouse.svg?style=flat)](GitHub) [![Gem Version](https://badge.fury.io/rb/grouse.svg)](https://badge.fury.io/rb/grouse)
+ [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![GitHub Status](https://img.shields.io/github/last-commit/takkii/grouse.svg?style=flat)](GitHub) [![Gem Version](https://badge.fury.io/rb/grouse.svg)](https://badge.fury.io/rb/grouse)
 
 <hr />
 
