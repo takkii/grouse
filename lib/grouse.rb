@@ -3,7 +3,7 @@
 require 'open3'
 require 'socket'
 
-# module grouse function.
+# module grouse many functions.
 module Grouse
   module_function
 
@@ -47,16 +47,16 @@ module Grouse
     @version = ENV['NYASOCOMSUN_VERSION']
   end
 
-  # rubygems version
+  # Using, rubygems version
   def gem_version
     gversion = 'gem -v'
     stdout_rb, stderr_rb, status_rb = Open3.capture3(gversion)
     version = stdout_rb.to_s
   end
 
-  # nyasocom tools core version
+  # grouse version
   def core_version
-    '1.1.1'.to_s
+    '1.1.2'.to_s
   end
 end
 

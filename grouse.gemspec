@@ -20,8 +20,8 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   s.required_ruby_version = ['>= 3.0']
   s.required_rubygems_version = '~> 3.6.9' if s.respond_to? gem_version
-  s.summary = "This project is minimum packages"
-  s.description = "nyasocom_sun packages in ROR."
+  s.summary = "grouse seen from the side like to Long-tailed Tit."
+  s.description = "In a way quasi AI program, automatic decision in key or value etc."
   s.metadata["github_repo"] = "https://github.com/takkii/grouse"
 
   # Use Windows ENV, speak function v4.0.4.5. exec 'bundle install'.

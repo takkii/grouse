@@ -1,3 +1,8 @@
+# Ignore, RubyMine Settings.
 .idea/*
+
+# Ignore Gemfile.lock
 Gemfile.lock
+
+# Ignore, .gem
 grouse-*.gem
