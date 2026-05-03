@@ -74,9 +74,46 @@ module Grouse
     end
   end
 
+  def validation_check(card_naming, members_card, equal_password)
+    begin
+      card_name = card_naming
+      memberscard = members_card
+      member = File.expand_path(memberscard + card_name)
+      eq_pass = equal_password
+
+      unless File.exist?(member)
+        puts 'Not found ' + card_name.to_s + ', Exec tanraku.'
+        tanraku_execute
+      else
+        File.open(member) do |f|
+          while (name = f.gets)
+            name_c = name.chomp
+              unless name_c =~ /#{eq_pass}/o
+                puts 'No, Match Word in ' + card_name.to_s
+                exit!
+              else
+                puts "Match word contain #{eq_pass} in #{card_name}"
+                return
+              end
+          end
+          if f.eof?
+            f.close
+          elsif !f.eof
+            tanraku_execute
+          end
+        end
+      end
+    rescue StandardError => a
+      puts a.backtrace
+      tanraku_execute
+    ensure
+      GC.auto_compact
+    end
+  end
+
   # grouse version
   def core_version
-    '1.1.3'.to_s
+    '1.1.4'.to_s
   end
 end
 
