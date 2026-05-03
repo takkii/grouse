@@ -54,9 +54,29 @@ module Grouse
     version = stdout_rb.to_s
   end
 
+    # BrokenCircuit
+  def recommender_circuit(number_failure, within_times)
+    @num_failure = number_failure
+    @within = within_times
+    @failure = [].to_s
+
+    if @failure >= @num_failure.to_s
+      cutoff = Time.now - @within.to_i
+      @failure.split.reject!{|t| t < cutoff.to_s}
+      return if @failure.length >= @num_failure.to_i
+    end
+
+    begin
+      yield
+    rescue
+      @failure.to_i << (Time.now).to_i
+      nil
+    end
+  end
+
   # grouse version
   def core_version
-    '1.1.2'.to_s
+    '1.1.3'.to_s
   end
 end
 
