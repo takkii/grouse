@@ -40,7 +40,6 @@ class Enaga
   end
 
   def self.help
-    def help
     puts 'HELP'.center(60, '-')
     puts ''
     puts 'Enaga'
@@ -64,7 +63,6 @@ class Enaga
     puts Enaga.koyomi
     puts ''
     puts 'HELP'.center(60, '-')
-  end
   end
 end
 
