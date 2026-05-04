@@ -8,33 +8,6 @@ require 'tanraku'
 
 # Enaga core in Grouse/lib
 class Enaga
-  def self.udp_socket
-    udp = UDPSocket.new
-    udp.connect("128.0.0.0", 7)
-    adrs = Socket.unpack_sockaddr_in(udp.getsockname)[1]
-    udp.close
-    adrs
-  end
-
-  def self.list_socket
-    Socket.ip_address_list.find do |intf|
-      intf.ipv4? && !intf.ipv4_loopback? && !intf.ipv4_multicast?
-    end.ip_address
-  end
-
-  def self.eq_socket
-    Socket.ip_address_list.find do |ai|
-      ai.ipv4? && !ai.ipv4_loopback?
-    end.ip_address
-  end
-
-  def self.koyomi
-    dt = Time.new.getlocal('+09:00')
-    week = %w(日 月 火 水 木 金 土)[dt.wday]
-    himekuri = "#{dt.year}年" + "#{dt.month}月" + "#{dt.day}日" + ' : '.to_s + "#{dt.hour}時"+"#{dt.min}分"+"#{dt.sec}秒" + ' : '.to_s + week + "曜日"
-    himekuri
-  end
-
   def self.version
     puts 'Enaga core in Grouse VERSION: ' + core_version
   end
@@ -48,19 +21,19 @@ class Enaga
     puts ''
     puts 'enaga -a'
     puts ''
-    puts Enaga.udp_socket
+    puts "#{udp_socket}"
     puts ''
     puts 'enaga -b'
     puts ''
-    puts Enaga.list_socket
+    puts "#{list_socket}"
     puts ''
     puts 'enaga -c'
     puts ''
-    puts Enaga.eq_socket
+    puts "#{eq_socket}"
     puts ''
     puts 'enaga -d'
     puts ''
-    puts Enaga.koyomi
+    puts "#{koyomi}"
     puts ''
     puts 'HELP'.center(60, '-')
   end
@@ -78,15 +51,17 @@ begin
   if one.nil?
     Enaga.version
   elsif one.match?(a)
-    puts Enaga.udp_socket
+    puts "#{udp_socket}"
   elsif one.match?(b)
-    puts Enaga.list_socket
+    puts "#{list_socket}"
   elsif one.match?(c)
-    puts Enaga.eq_socket
+    puts "#{eq_socket}"
   elsif one.match?(d)
-    puts Enaga.koyomi
+    puts "#{koyomi}"
   elsif one.match?(h)
     Enaga.help
+  else
+    puts 'Not Found Commands, Please enaga -h commad.'
   end
 rescue Exception => e
   puts e.backtrace
