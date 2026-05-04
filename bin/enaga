@@ -1,0 +1,87 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+# vim: filetype=ruby
+
+require 'open3'
+require 'socket'
+require 'grouse'
+require 'tanraku'
+
+# Enaga core in Grouse/lib
+class Enaga
+  def self.udp_socket
+    udp_socket
+  end
+
+  def self.list_socket
+    list_socket
+  end
+
+  def self.eq_socket
+    eq_socket
+  end
+
+  def self.koyomi
+    koyomi
+  end
+
+  def self.version
+    puts 'Enaga core in Grouse VERSION: ' + core_version
+  end
+
+  def self.help
+    def help
+    puts 'HELP'.center(60, '-')
+    puts ''
+    puts 'Enaga'
+    puts ''
+    Enaga.version
+    puts ''
+    puts 'Enaga -a'
+    puts ''
+    Enaga.udp_socket
+    puts ''
+    puts 'Enaga -b'
+    puts ''
+    Enaga.list_socket
+    puts ''
+    puts 'Enaga -c'
+    puts ''
+    Enaga.eq_socket
+    puts ''
+    puts 'Enaga -d'
+    puts ''
+    Enaga.koyomi
+    puts ''
+    puts 'HELP'.center(60, '-')
+  end
+  end
+end
+
+one = ARGV[0]
+
+a = /\A[-][a]\z/
+b = /\A[-][b]\z/
+c = /\A[-][c]\z/
+d = /\A[-][d]\z/
+
+begin
+  if one.nil?
+    Enaga.version
+  elsif one.match?(a)
+    Enaga.udp_socket
+  elsif one.match?(b)
+    Enaga.list_socket
+  elsif one.match?(c)
+    Enaga.eq_socket
+  elsif one.match?(d)
+    Enaga.koyomi
+  end
+rescue Exception => e
+  puts e.backtrace
+  tanraku_execute
+ensure
+  GC.auto_compact
+end
+
+__END__
