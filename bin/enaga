@@ -13,19 +13,19 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 # Enaga core in Grouse/lib
 class Enaga
   def self.udp_socket
-    udp_socket
+    puts "my ipaddress(v4): #{udp_socket}"
   end
 
   def self.list_socket
-    list_socket
+    puts "my ipaddress(v4): #{list_socket}"
   end
 
   def self.eq_socket
-    eq_socket
+    puts "my ipaddress(v4): #{eq_socket}"
   end
 
   def self.koyomi
-    koyomi
+    puts "#{koyomi}"
   end
 
   def self.version
