@@ -42,23 +42,23 @@ class Enaga
   def self.help
     puts 'HELP'.center(60, '-')
     puts ''
-    puts 'Enaga'
+    puts 'enaga'
     puts ''
     Enaga.version
     puts ''
-    puts 'Enaga -a'
+    puts 'enaga -a'
     puts ''
     puts Enaga.udp_socket
     puts ''
-    puts 'Enaga -b'
+    puts 'enaga -b'
     puts ''
     puts Enaga.list_socket
     puts ''
-    puts 'Enaga -c'
+    puts 'enaga -c'
     puts ''
     puts Enaga.eq_socket
     puts ''
-    puts 'Enaga -d'
+    puts 'enaga -d'
     puts ''
     puts Enaga.koyomi
     puts ''
