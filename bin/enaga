@@ -2,30 +2,37 @@
 # frozen_string_literal: true
 # vim: filetype=ruby
 
-require 'open3'
 require 'socket'
 require 'grouse'
 require 'tanraku'
 
-lib = File.expand_path('lib', __dir__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-
 # Enaga core in Grouse/lib
 class Enaga
   def self.udp_socket
-    puts "my ipaddress(v4): #{udp_socket}"
+    udp = UDPSocket.new
+    udp.connect("128.0.0.0", 7)
+    adrs = Socket.unpack_sockaddr_in(udp.getsockname)[1]
+    udp.close
+    adrs
   end
 
   def self.list_socket
-    puts "my ipaddress(v4): #{list_socket}"
+    Socket.ip_address_list.find do |intf|
+      intf.ipv4? && !intf.ipv4_loopback? && !intf.ipv4_multicast?
+    end.ip_address
   end
 
   def self.eq_socket
-    puts "my ipaddress(v4): #{eq_socket}"
+    Socket.ip_address_list.find do |ai|
+      ai.ipv4? && !ai.ipv4_loopback?
+    end.ip_address
   end
 
   def self.koyomi
-    puts "#{koyomi}"
+    dt = Time.new.getlocal('+09:00')
+    week = %w(日 月 火 水 木 金 土)[dt.wday]
+    himekuri = "#{dt.year}年" + "#{dt.month}月" + "#{dt.day}日" + ' : '.to_s + "#{dt.hour}時"+"#{dt.min}分"+"#{dt.sec}秒" + ' : '.to_s + week + "曜日"
+    himekuri
   end
 
   def self.version
@@ -42,19 +49,19 @@ class Enaga
     puts ''
     puts 'Enaga -a'
     puts ''
-    Enaga.udp_socket
+    puts Enaga.udp_socket
     puts ''
     puts 'Enaga -b'
     puts ''
-    Enaga.list_socket
+    puts Enaga.list_socket
     puts ''
     puts 'Enaga -c'
     puts ''
-    Enaga.eq_socket
+    puts Enaga.eq_socket
     puts ''
     puts 'Enaga -d'
     puts ''
-    Enaga.koyomi
+    puts Enaga.koyomi
     puts ''
     puts 'HELP'.center(60, '-')
   end
@@ -72,13 +79,13 @@ begin
   if one.nil?
     Enaga.version
   elsif one.match?(a)
-    Enaga.udp_socket
+    puts Enaga.udp_socket
   elsif one.match?(b)
-    Enaga.list_socket
+    puts Enaga.list_socket
   elsif one.match?(c)
-    Enaga.eq_socket
+    puts Enaga.eq_socket
   elsif one.match?(d)
-    Enaga.koyomi
+    puts Enaga.koyomi
   end
 rescue Exception => e
   puts e.backtrace
