@@ -2,8 +2,8 @@
 # frozen_string_literal: true
 # vim: filetype=ruby
 
-require 'socket'
 require 'grouse'
+require 'socket'
 require 'tanraku'
 
 # Enaga core in Grouse/lib
