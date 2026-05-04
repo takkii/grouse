@@ -15,6 +15,7 @@ Gem::Specification.new do |s|
   ]
   # Ignore files in mini_test and mini_unit folder.
   s.files = `git ls-files -z`.split("\x0")
+  s.executables = s.files.grep(%r{^bin/}) { |f| File.basename(f) }
   s.homepage = "https://github.com/takkii/grouse"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
