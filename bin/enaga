@@ -74,6 +74,7 @@ a = /\A[-][a]\z/
 b = /\A[-][b]\z/
 c = /\A[-][c]\z/
 d = /\A[-][d]\z/
+h = /\A[-][h]\z/
 
 begin
   if one.nil?
@@ -86,6 +87,8 @@ begin
     puts Enaga.eq_socket
   elsif one.match?(d)
     puts Enaga.koyomi
+  elsif one.match?(h)
+    Enaga.help
   end
 rescue Exception => e
   puts e.backtrace
