@@ -113,7 +113,7 @@ module Grouse
 
   # grouse version
   def core_version
-    '1.1.5.1'.to_s
+    '1.1.5.2'.to_s
   end
 end
 
