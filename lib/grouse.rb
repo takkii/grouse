@@ -64,6 +64,7 @@ module Grouse
       cutoff = Time.now - @within.to_i
       @failure.split.reject!{|t| t < cutoff.to_s}
       return if @failure.length >= @num_failure.to_i
+      super
     end
 
     begin
@@ -113,7 +114,7 @@ module Grouse
 
   # grouse version
   def core_version
-    '1.1.5.2'.to_s
+    '1.1.5.3'.to_s
   end
 end
 
