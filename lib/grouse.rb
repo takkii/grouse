@@ -70,7 +70,7 @@ module Grouse
       yield
     rescue
       @failure.to_i << (Time.now).to_i
-      nil
+      @failure = nil
     end
   end
 
@@ -99,10 +99,14 @@ module Grouse
           if f.eof?
             f.close
           elsif !f.eof
-            tanraku_execute
+            return
           end
         end
       end
+    rescue Exception => cep
+      puts cep.backtrace
+      puts cep.backtrace_locations
+      tanraku_execute
     rescue StandardError => a
       puts a.backtrace
       tanraku_execute
@@ -113,7 +117,7 @@ module Grouse
 
   # grouse version
   def core_version
-    '1.1.5.2'.to_s
+    '1.1.5.3'.to_s
   end
 end
 
