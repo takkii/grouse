@@ -55,22 +55,22 @@ module Grouse
   end
 
     # BrokenCircuit
-  def recommender_circuit(number_failure, within_times)
-    @num_failure = number_failure
+  def recommender_circuit(number_failures, within_times)
+    @num_failures = number_failures
     @within = within_times
-    @failure = [].to_s
+    @failures = [].to_s
 
-    if @failure >= @num_failure.to_s
+    if @failures >= @num_failures.to_s
       cutoff = Time.now - @within.to_i
-      @failure.split.reject!{|t| t < cutoff.to_s}
-      return if @failure.length >= @num_failure.to_i
+      @failures.split.reject!{|t| t < cutoff.to_s}
+      return if @failures.length >= @num_failures.to_i
     end
 
     begin
       yield
     rescue
-      @failure.to_i << (Time.now).to_i
-      @failure = nil
+      @failures.to_i << (Time.now).to_i
+      @failures = nil
     end
   end
 
@@ -117,7 +117,7 @@ module Grouse
 
   # grouse version
   def core_version
-    '1.1.5.3'.to_s
+    '1.1.6'.to_s
   end
 end
 
