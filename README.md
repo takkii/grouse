@@ -9,8 +9,8 @@
 <hr />
 
 <div align="center">
-  <h1><p> This project name is grouse.</p></h1>
-  <h3><p><ins> Use nyasocom_sun_pg_win. </ins></p></h3>
+  <h1><p> This project name is grouse. </p></h1>
+  <h3><p><ins> Use <a href="https://github.com/takkii/purplehaze">purplehaze</a>.</ins></p></h3>
   <h4><p> Please readme, See the <a href="https://github.com/takkii/grouse/wiki/manual">wiki</a> for how to use. </p></h4>
 </div>
 
