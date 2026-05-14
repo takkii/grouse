@@ -115,9 +115,29 @@ module Grouse
     end
   end
 
+  def ipaddress_certification(gs_udp_socket, gs_list_socket)
+    begin
+      gs_udp_socket = udp_socket
+      gs_list_socket = list_socket
+
+      unless "#{gs_udp_socket}" == "#{gs_list_socket}"
+        puts "#{gs_udp_socket} == #{gs_list_socket}"
+        puts 'Something other than an IP address was matched.'
+        return
+      else
+        puts 'Passed, ip address specification.'
+      end
+    rescue StandardError => s
+      puts s.backtrace
+      tanraku_execute
+    ensure
+      GC.auto_compact
+    end
+  end
+
   # grouse version
   def core_version
-    '1.1.6'.to_s
+    '1.1.7'.to_s
   end
 end
 
