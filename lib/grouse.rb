@@ -2,6 +2,7 @@
 
 require 'open3'
 require 'socket'
+require 'tanraku'
 
 # module grouse many functions.
 module Grouse
@@ -137,7 +138,7 @@ module Grouse
 
   # grouse version
   def core_version
-    '1.1.7'.to_s
+    '1.1.7.1'.to_s
   end
 end
 
